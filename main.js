@@ -1,3 +1,4 @@
+var timeToPick = 3000;
 var pickedPlace = '';
 var foodPlaces = [
   'Burger Bar',
@@ -12,6 +13,10 @@ var foodPlaces = [
   'FuLu Mandarijn',
 ];
 
+var getElement = function(query) {
+  return document.querySelector(query);
+}
+
 var getRandomInt = function(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -19,33 +24,32 @@ var getRandomInt = function(min, max) {
 var randomlySelectAPlace = function() {
   var placeIndex = getRandomInt(0, foodPlaces.length);
   pickedPlace = foodPlaces[placeIndex];
-  document.querySelector('h1').innerHTML = foodPlaces[placeIndex];
+  getElement('h1').innerHTML = foodPlaces[placeIndex];
 }
 
 var pickComplete = function() {
-  document.querySelector('body').style.background = '#aecc76';
-  document.querySelector('h1').style.animation = 'zoomIn .6s ease';
+  getElement('body').style.background = '#aecc76';
+  getElement('h1').style.animation = 'zoomIn .6s ease';
   setTimeout(function() {
-    document.querySelector('#locationLink').style.display = 'inline-block';
-    document.querySelector('#locationLink').href = 'https://www.google.com/maps/search/' + pickedPlace;
+    var link = getElement('#locationLink');
+    link.style.display = 'inline-block';
+    link.href = 'https://www.google.com/maps/search/' + pickedPlace;
+    setTimeout(function() { getElement('#viewFullList').style.display = 'inline-block'; }, 500);
   }, 1000);
-  setTimeout(function() {
-    document.querySelector('#viewFullList').style.display = 'inline-block';
-  }, 1500);
 }
 
 var loopBetweenRandomPlaces = function() {
-  document.querySelector('button').style.display = 'none';
-  document.querySelector('body').style.background = '#5F9DC7';
+  getElement('button').style.display = 'none';
+  getElement('body').style.background = '#5F9DC7';
   var interval = setInterval(randomlySelectAPlace, 100);
   setTimeout(function() {
     clearInterval(interval);
     pickComplete();
-  }, 5000)
+  }, timeToPick)
 }
 
 var constructFullList = function() {
-  var fullList = document.querySelector('#fullList');
+  var fullList = getElement('#fullList');
   foodPlaces.forEach(function(place){
     var link = document.createElement('a');
     link.target = '_blank';
@@ -60,9 +64,9 @@ var constructFullList = function() {
 }
 
 var showFullList = function() {
-  document.querySelector('#fullList').style.display = 'block';
+  getElement('#fullList').style.display = 'block';
   setTimeout(function() {
-    document.querySelector('p').style.display = 'block';
+    getElement('p').style.display = 'block';
   }, 1000)
 }
 

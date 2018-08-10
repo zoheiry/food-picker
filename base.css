@@ -16,7 +16,7 @@ button {
   padding: 0;
   color: #FFF;
   font-size: 23px;
-  font-family: 'raleway';
+  font-family: 'Raleway', sans-serif;
   text-align: center;
   width: 200px;
   height: 200px;
@@ -47,6 +47,7 @@ button span {
 }
 
 h1 {
+  font-weight: 300;
   color: #FFF;
   text-align: center;
   font-size: 70px;
