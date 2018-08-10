@@ -1,0 +1,141 @@
+body {
+  background: #5F9DC7;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Raleway', sans-serif;
+  transition: background 0.7s ease;
+}
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #FFF;
+  font-size: 23px;
+  font-family: 'raleway';
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  animation: zoomIn .6s ease;
+}
+
+button img {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(0,0,0,.2);
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 3px 3px 8px rgba(0,0,0,.6);
+  font-size: 28px;
+}
+
+h1 {
+  color: #FFF;
+  text-align: center;
+  font-size: 70px;
+  margin: 0;
+  animation-fill-mode: both;
+}
+
+#locationLink,
+#viewFullList {
+  color: #FFF;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+  font-weight: 600;
+  height: 50px;
+}
+
+#locationLink img {
+  height: 100%;
+}
+
+.hiddenTextWrapper {
+  height: 50px;
+  margin-top: 15px;
+}
+
+#locationLink {
+  animation: slideInRight .6s ease;
+  animation-fill-mode: both;
+}
+
+#viewFullList {
+  margin-top: 15px;
+  animation: slideInUp .6s ease;
+}
+
+ul {
+  list-style: none;
+  background: #FFF;
+  max-height: 300px;
+  overflow: auto;
+  padding: 10px 20px;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  display: none;
+  animation: slideDown .5s ease;
+}
+
+li {
+  border-bottom: solid 1px #d5d5d5;
+}
+
+li:last-child {
+  border-bottom: 0;
+}
+
+li a {
+  text-decoration: none;
+  color: #313233;
+  padding: 10px;
+  display: block;
+}
+
+p {
+  color: #FFF;
+  font-size: 18px;
+  display: none;
+  animation: slideInUp 0.6s ease;
+}
+
+@keyframes slideInRight {
+  0% { transform: translateX(100%); opacity: 0; }
+  70% { transform: translateX(-30%); opacity: 1; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInUp {
+  0% { transform: translateY(100%); opacity: 0; }
+  70% { transform: translateY(-30%); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  0% { max-height: 0; }
+  100% { max-height: 300px; }
+}
+
+@keyframes zoomIn {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
