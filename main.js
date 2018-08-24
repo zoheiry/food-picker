@@ -11,6 +11,8 @@ var foodPlaces = [
   'Sla',
   'Asian Kitchen',
   'FuLu Mandarijn',
+  'Tokyo Ramen Iki',
+  'Ter Marsch'
 ];
 
 var getElement = function(query) {
